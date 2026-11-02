@@ -3,24 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
 <title>Genevieve A. Mortensen</title>
 <meta name="description" content="Genevieve A. Mortensen: Ph.D. candidate in Bioinformatics at Indiana University working on machine learning for longitudinal clinical data, multi-omics, and privacy-preserving biomedical AI.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%233a5f8f%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27%23fdf6e3%27%3EGM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: single centered reading column, sticky top nav, profile block then anchored sections (academic homepage). */
 :root{
-  --bg:#fbfaf8; --fg:#1f1d1c; --muted:#5f5955; --rule:#e4dfda; --accent:#8f1d1d; --accent-soft:#f4e6e4; --chip:#f1eeea;
+  /* Solarized-light paper, near-black gray text, soft navy accent. Single light theme by choice. */
+  --bg:#fdf6e3; --fg:#2a2a2e; --muted:#5d6670; --rule:#e8dfc4; --accent:#3a5f8f; --accent-soft:#eee4c8; --chip:#f3ead2;
   --display:"Literata",Georgia,"Times New Roman",serif;
   --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#161413; --fg:#ebe6e1; --muted:#a8a09a; --rule:#2e2a28; --accent:#e58b85; --accent-soft:#3a2321; --chip:#24201e; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#161413; --fg:#ebe6e1; --muted:#a8a09a; --rule:#2e2a28; --accent:#e58b85; --accent-soft:#3a2321; --chip:#24201e; color-scheme:dark}
 
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -55,8 +53,8 @@ p{margin:0 0 1rem;max-width:65ch}
 .role a:hover{color:var(--accent);text-decoration:none}
 .links{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-top:1rem;font-size:.95rem}
 .email{font-family:var(--mono);font-size:.85rem;color:var(--fg);background:var(--chip);padding:.15rem .5rem;border-radius:4px;user-select:all}
-.portrait{width:132px;aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-size:2.6rem;font-weight:600;letter-spacing:.02em}
-@media (max-width:560px){.profile{grid-template-columns:1fr}.portrait{order:-1;width:96px;font-size:1.9rem}}
+.portrait{width:160px;height:auto;aspect-ratio:1;max-width:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--accent-soft)}
+@media (max-width:560px){.profile{grid-template-columns:1fr}.portrait{order:-1;width:120px}}
 
 .status{border-left:3px solid var(--accent);padding:.6rem 0 .6rem 1rem;margin:1.5rem 0 0;color:var(--fg);max-width:65ch}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:.5rem 0 0;list-style:none}
@@ -97,7 +95,6 @@ footer{margin-top:3.5rem;padding-block:1.5rem 2.5rem;border-top:1px solid var(--
       <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#publications">Publications</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#teaching">Teaching &amp; Service</a></li>
       <li><a href="GAMortensen_CV.pdf" target="_blank" rel="noopener">CV</a></li>
     </ul>
@@ -120,7 +117,7 @@ footer{margin-top:3.5rem;padding-block:1.5rem 2.5rem;border-top:1px solid var(--
           <a href="https://orcid.org/0009-0003-4370-3646">ORCID</a>
         </div>
       </div>
-      <div class="portrait" aria-hidden="true">GM</div>
+      <img class="portrait" src="headshot.jpg" alt="Genevieve A. Mortensen" width="160" height="160">
     </div>
 
     <h2 style="margin-top:2.25rem">About</h2>
@@ -195,18 +192,6 @@ footer{margin-top:3.5rem;padding-block:1.5rem 2.5rem;border-top:1px solid var(--
         <span class="badges"><span class="first">Equal contribution</span><a href="https://doi.org/10.1038/s41467-024-50639-9">DOI</a><span>iGEM Gold Medal &amp; Best Measurement</span></span>
       </li>
     </ol>
-  </section>
-
-  <section id="experience" aria-labelledby="exp-h">
-    <h2 id="exp-h">Experience</h2>
-    <ul class="news">
-      <li><span class="when">2022–now</span><span><b>Research Assistant</b>, Tang Lab, Indiana University. Virtual Patient modeling on MIMIC-IV/eICU, metagenomics, metabolomics, biomedical LLMs.</span></li>
-      <li><span class="when">2024, 2025</span><span><b>Omics Bioinformatics Data Analyst Intern</b>, Zoetis. End-to-end metabolomics pipeline, multi-omics reporting, vaccine-target evaluation metrics.</span></li>
-      <li><span class="when">2023</span><span><b>Pharmacogenomics Research Intern</b>, IU School of Medicine. Built miRilizer, an R Shiny app for mRNA–miRNA interactome analysis.</span></li>
-      <li><span class="when">2021–22</span><span><b>Research Associate</b>, Asuragen (Bio-Techne). Molecular controls for qPCR and sequencing assays under cGMP, CLIA/CAP.</span></li>
-      <li><span class="when">2021</span><span><b>Manufacturing Scientist</b>, Agilent Technologies. IVD/RUO oncology reagents and QC data.</span></li>
-      <li><span class="when">2020–21</span><span><b>Molecular Technologist</b>, Sonic Reference Laboratory. High-throughput COVID-19 qPCR testing and lab automation.</span></li>
-    </ul>
   </section>
 
   <section id="teaching" aria-labelledby="teach-h">
