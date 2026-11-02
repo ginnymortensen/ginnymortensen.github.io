@@ -1,235 +1,236 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Genevieve A. Mortensen — Bioinformatics, Computational Omics, and Biomedical AI." />
-  <title>Genevieve A. Mortensen | Bioinformatics & Biomedical AI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Genevieve A. Mortensen</title>
+<meta name="description" content="Genevieve A. Mortensen: Ph.D. candidate in Bioinformatics at Indiana University working on machine learning for longitudinal clinical data, multi-omics, and privacy-preserving biomedical AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single centered reading column, sticky top nav, profile block then anchored sections (academic homepage). */
+:root{
+  --bg:#fbfaf8; --fg:#1f1d1c; --muted:#5f5955; --rule:#e4dfda; --accent:#8f1d1d; --accent-soft:#f4e6e4; --chip:#f1eeea;
+  --display:"Literata",Georgia,"Times New Roman",serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161413; --fg:#ebe6e1; --muted:#a8a09a; --rule:#2e2a28; --accent:#e58b85; --accent-soft:#3a2321; --chip:#24201e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161413; --fg:#ebe6e1; --muted:#a8a09a; --rule:#2e2a28; --accent:#e58b85; --accent-soft:#3a2321; --chip:#24201e; color-scheme:dark}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--body)}
+a{color:var(--accent);text-decoration:none;text-underline-offset:3px}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav-inner,.wrap{max-width:46rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;flex-wrap:wrap;padding-block:.7rem}
+.brand{font-family:var(--display);font-weight:600;color:var(--fg);font-size:1.05rem}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;font-size:.92rem}
+.nav ul a{color:var(--muted)}
+.nav ul a:hover{color:var(--accent);text-decoration:none}
+
+main.wrap{padding-block:2.75rem 1rem}
+section{scroll-margin-top:4.5rem}
+section+section{margin-top:3rem}
+h1,h2{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,1.5rem + 2vw,2.6rem);line-height:1.15}
+h2{font-size:1.35rem;margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule)}
+h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .5rem;font-weight:600}
+p{margin:0 0 1rem;max-width:65ch}
+
+.profile{display:grid;grid-template-columns:1fr auto;gap:1.5rem 2rem;align-items:start}
+.profile>div{min-width:0}
+.role{margin:.5rem 0 0;color:var(--muted);line-height:1.5}
+.role a{color:var(--muted);border-bottom:1px solid var(--rule)}
+.role a:hover{color:var(--accent);text-decoration:none}
+.links{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-top:1rem;font-size:.95rem}
+.email{font-family:var(--mono);font-size:.85rem;color:var(--fg);background:var(--chip);padding:.15rem .5rem;border-radius:4px;user-select:all}
+.portrait{width:132px;aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-size:2.6rem;font-weight:600;letter-spacing:.02em}
+@media (max-width:560px){.profile{grid-template-columns:1fr}.portrait{order:-1;width:96px;font-size:1.9rem}}
+
+.status{border-left:3px solid var(--accent);padding:.6rem 0 .6rem 1rem;margin:1.5rem 0 0;color:var(--fg);max-width:65ch}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:.5rem 0 0;list-style:none}
+.tags li{font-size:.82rem;background:var(--chip);color:var(--muted);padding:.2rem .65rem;border-radius:999px}
+
+.news{list-style:none;margin:0;padding:0;display:grid;gap:.65rem}
+.news li{display:grid;grid-template-columns:4.75rem 1fr;gap:1rem}
+.news li>span:last-child{min-width:0}
+.when{font-family:var(--mono);font-size:.82rem;color:var(--muted);padding-top:.15rem;font-variant-numeric:tabular-nums}
+
+.pubs{margin:0;padding-left:1.6rem;display:grid;gap:1.1rem}
+.pubs li{padding-left:.25rem}
+.pubs li::marker{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+.pt{font-weight:600;display:block;line-height:1.45}
+.pa{display:block;color:var(--muted);font-size:.94rem}
+.pa b{color:var(--fg);font-weight:600}
+.pv{display:block;font-size:.94rem}
+.pv i{font-style:italic}
+.badges{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem}
+.badges a,.badges span{font-family:var(--mono);font-size:.74rem;border:1px solid var(--rule);padding:.05rem .45rem;border-radius:3px;color:var(--muted)}
+.badges a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.badges .first{border-color:var(--accent);color:var(--accent)}
+.note{font-size:.88rem;color:var(--muted)}
+
+.list{margin:0;padding-left:1.1rem;display:grid;gap:.35rem}
+.list li{max-width:65ch}
+.dim{color:var(--muted)}
+
+footer{margin-top:3.5rem;padding-block:1.5rem 2.5rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--muted)}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top">GAM</a>
-      <nav aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<nav class="nav" aria-label="Sections">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Genevieve A. Mortensen</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#teaching">Teaching &amp; Service</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <section id="about" aria-labelledby="name">
+    <div class="profile">
+      <div>
+        <h1 id="name">Genevieve A. Mortensen</h1>
+        <p class="role">Ph.D. Candidate in Informatics (Bioinformatics)<br>
+          <a href="https://luddy.indiana.edu/">Luddy School of Informatics, Computing, and Engineering</a>, <a href="https://www.indiana.edu/">Indiana University Bloomington</a></p>
+        <div class="links">
+          <span class="email">gamorten@iu.edu</span>
+          <a href="https://scholar.google.com/citations?user=PmE0UVUAAAAJ&amp;hl=en">Google Scholar</a>
+          <a href="https://github.com/ginnymortensen">GitHub</a>
+          <a href="https://www.linkedin.com/in/gamorten">LinkedIn</a>
+          <a href="https://orcid.org/0009-0003-4370-3646">ORCID</a>
+        </div>
+      </div>
+      <div class="portrait" aria-hidden="true">GM</div>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">BIOINFORMATICS · COMPUTATIONAL OMICS · BIOMEDICAL AI</p>
-          <h1>Genevieve A. Mortensen</h1>
-          <p class="lead">Bioinformatics Ph.D. candidate and M.S. candidate in Computer Science developing machine-learning methods and reproducible computational workflows for complex biomedical data.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:gamorten@iu.edu">Email me</a>
-            <a class="button secondary" href="cv/GAMortensen_CV_2026_current_Nextflow.docx">CV</a>
-          </div>
-          <div class="meta-row">
-            <span>Indiana University Bloomington</span>
-            <span>Expected Ph.D. completion: May 2027</span>
-          </div>
-        </div>
-        <aside class="hero-card">
-          <div class="card-label">CURRENT FOCUS</div>
-          <ul>
-            <li>Physiological representation learning</li>
-            <li>Longitudinal clinical and survival modeling</li>
-            <li>Multi-omics and biomedical AI</li>
-            <li>Reproducible scientific software</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
+    <h2 style="margin-top:2.25rem">About</h2>
+    <p>I am a Ph.D. candidate in Informatics (Bioinformatics track) at Indiana University Bloomington, advised by <a href="https://luddy.indiana.edu/contact/profile/?Haixu_Tang">Haixu Tang</a>, and I am also completing an M.S. in Computer Science. My research builds <b>machine learning methods for longitudinal clinical data</b>, <b>multi-omics analysis</b>, and <b>privacy-preserving biomedical AI</b>.</p>
+    <p>My dissertation develops a <b>Virtual Patient</b> framework: a hierarchical variational autoencoder with physiological-subsystem encoders and a Cox/DeepSurv survival head, trained on longitudinal MIMIC-IV and eICU intensive-care data with IU School of Medicine collaborators. I am extending it toward causal inference, risk assessment, and physiological aging. In parallel I lead cross-species <b>metabolomics of aging</b>, built <b>MGPipe</b> for shotgun metagenomics of gestational disease, and study mitochondrial genomic variation with All of Us data.</p>
+    <p>Before graduate school I spent three years in cGMP and CLIA/CAP/ISO molecular laboratories at Asuragen, Agilent Technologies, and Sonic Reference Laboratory, and I have completed two summers as an omics bioinformatics intern at Zoetis. I received my B.S. in Cell and Molecular Biology from The University of Texas at Austin, where I worked with <a href="https://barricklab.org/">Jeffrey Barrick</a>.</p>
+    <p class="status"><b>On the job market.</b> I finish my Ph.D. in May 2027 and am looking for industry roles in bioinformatics, computational biology, and biomedical ML starting June 2027.</p>
+    <ul class="tags" aria-label="Research areas">
+      <li>Longitudinal &amp; survival modeling</li><li>Representation learning</li><li>EHR / ICU data</li><li>Multi-omics</li><li>Metagenomics</li><li>Metabolomics of aging</li><li>Biomedical LLMs</li><li>Reproducible pipelines</li>
+    </ul>
+  </section>
 
-    <section class="section" id="research">
-      <div class="container">
-        <div class="section-heading">
-          <span>01</span>
-          <h2>Research</h2>
-        </div>
-        <div class="research-grid">
-          <article class="research-card featured">
-            <p class="tag">DISSERTATION</p>
-            <h3>Hierarchical Physiological Representation Learning</h3>
-            <p>Architecting and training a hierarchical variational autoencoder for longitudinal MIMIC-IV intensive-care data, with subsystem encoders, system-level latent variables, a global patient representation, mirrored decoders, and a Cox/DeepSurv hazard head.</p>
-            <div class="chips">
-              <span>PyTorch</span><span>Representation learning</span><span>Deep learning</span><span>Survival analysis</span>
-            </div>
-          </article>
-          <article class="research-card">
-            <p class="tag">BIOMEDICAL AI</p>
-            <h3>ADetectoLocum</h3>
-            <p>Co-developed and deployed a locally deployable, privacy-preserving language-model pipeline for Alzheimer's risk detection using Hugging Face Transformers and multimodal clinical information.</p>
-            <div class="chips"><span>LLMs</span><span>Hugging Face</span><span>Multimodal AI</span></div>
-          </article>
-          <article class="research-card">
-            <p class="tag">GENOMICS</p>
-            <h3>Mitochondrial Genomic Variation</h3>
-            <p>Analyzing large-scale human genetics data from the All of Us Research Program and UK Biobank to investigate mitochondrial genomic variation in cardiovascular disease.</p>
-            <div class="chips"><span>WGS</span><span>Human genetics</span><span>Clinical data</span></div>
-          </article>
-          <article class="research-card">
-            <p class="tag">METAGENOMICS</p>
-            <h3>Gestational Disease Microbiome</h3>
-            <p>Developed MGPipe for reproducible shotgun metagenomics processing and predictive modeling of maternal gut microbiome signatures associated with gestational disease.</p>
-            <div class="chips"><span>Metagenomics</span><span>MGPipe</span><span>Predictive modeling</span></div>
-          </article>
-          <article class="research-card">
-            <p class="tag">COMPARATIVE AGING</p>
-            <h3>Cross-Species Metabolomics</h3>
-            <p>Lead computational analysis across Drosophila, mouse, and elephant aging using age-effect modeling, temporal trajectories, pathway scoring, and cross-species concordance.</p>
-            <div class="chips"><span>Metabolomics</span><span>Trajectory analysis</span><span>Visualization</span></div>
-          </article>
-          <article class="research-card">
-            <p class="tag">PHARMACOGENOMICS</p>
-            <h3>miRilizer</h3>
-            <p>Developed an R Shiny application and standalone analysis pipeline for mRNA-miRNA multi-omic interactome analysis in human hepatocytes for target discovery and pharmacogenomics research.</p>
-            <div class="chips"><span>R</span><span>Shiny</span><span>Multi-omics</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
+  <section id="news" aria-labelledby="news-h">
+    <h2 id="news-h">News</h2>
+    <ul class="news">
+      <li><span class="when">2026</span><span>Our benchmark <i>LLMs as Lab Engineers</i> appeared in <b>Findings of ACL 2026</b>.</span></li>
+      <li><span class="when">2026</span><span>Preprint on <a href="https://doi.org/10.64898/2026.06.23.733839">comparative metabolomics of aging</a> across Drosophila, mouse, and elephant is on <b>bioRxiv</b>.</span></li>
+      <li><span class="when">2026</span><span>First-author paper on gut-microbiome signatures of gestational disease published in <b><i>Microbiology Spectrum</i></b>.</span></li>
+      <li><span class="when">2026</span><span>Lightning talk and poster at the IU Center for Bioinformatics Research Retreat, which I helped organize.</span></li>
+      <li><span class="when">2025</span><span>Presented <i>ADetectoLocum</i> at the <b>AMIA 2025 Informatics Summit</b> in Pittsburgh.</span></li>
+      <li><span class="when">2025</span><span>Contributed to HM-TARGET, personalized real-time hemodynamic targets in critical care, published in <b><i>Nature Communications</i></b>.</span></li>
+      <li><span class="when">2025</span><span>Poster on mitochondrial genomic variation and cardiovascular comorbidities at the <b>NHGRI CEGS</b> Annual Meeting.</span></li>
+      <li><span class="when">2025</span><span>Returned to <b>Zoetis</b> for a second summer as an omics bioinformatics intern.</span></li>
+      <li><span class="when">2024</span><span>Equal-contribution paper on the burden of BioBricks published in <b><i>Nature Communications</i></b>.</span></li>
+    </ul>
+  </section>
 
-    <section class="section muted" id="experience">
-      <div class="container">
-        <div class="section-heading">
-          <span>02</span>
-          <h2>Experience</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="time">2022–Present</div>
-            <div>
-              <h3>Research Assistant · Indiana University</h3>
-              <p>Biomedical machine learning, longitudinal clinical data engineering, MIMIC-IV analysis, multi-omics research, LLMs, survival modeling, HPC/GPU workflows, and scientific software development.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2025 · 2024</div>
-            <div>
-              <h3>Omics Bioinformatics Data Analyst Intern · Zoetis</h3>
-              <p>Developed Python/R infrastructure across genomics, metabolomics, microbiome, and NGS applications; supported NGS workflows; developed sequence-homology reporting and statistical metrics for vaccine-target prediction; worked with Nextflow and reproducible workflow infrastructure.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2021–2022</div>
-            <div>
-              <h3>Research Associate · Asuragen / Bio-Techne</h3>
-              <p>Developed and quality-controlled molecular sequences and controls for genetic and epidemiological assays involving qPCR, RNA sequencing, and DNA sequencing under cGMP and CLIA/CAP environments.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2021</div>
-            <div>
-              <h3>Manufacturing Scientist · Agilent Technologies</h3>
-              <p>Supported oncology-related detection assays, FISH/qPCR data analysis, reagent quality, and workflow automation.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2020–2021</div>
-            <div>
-              <h3>Molecular Technologist · Sonic Reference Laboratory</h3>
-              <p>Performed high-complexity molecular testing and developed computational analysis and data-transfer workflows for clinical laboratory applications.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">2019–2021</div>
-            <div>
-              <h3>Research Assistant / iGEM Researcher · UT Austin</h3>
-              <p>Analyzed genome-resequencing, growth, and gene-expression data; studied engineered construct burden and evolutionary stability; developed Python/R tools and interactive models.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+  <section id="publications" aria-labelledby="pubs-h">
+    <h2 id="pubs-h">Publications</h2>
+    <p class="note">* equal contribution. Full list on <a href="https://scholar.google.com/citations?user=PmE0UVUAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+    <ol class="pubs" reversed>
+      <li>
+        <span class="pt">LLMs as Lab Engineers: A benchmark for analytical method lifecycle management</span>
+        <span class="pa">X. Chen, M. Monshizadeh, C. Zhang, J. Lang, Y. Wu, <b>G. Mortensen</b>, X. Liu, H. Tang</span>
+        <span class="pv"><i>Findings of the Association for Computational Linguistics</i> (ACL Findings), 2026</span>
+        <span class="badges"><a href="https://doi.org/10.18653/v1/2026.findings-acl.2015">DOI</a></span>
+      </li>
+      <li>
+        <span class="pt">Comparative metabolomics identifies recurrent age-associated pathway remodeling across species</span>
+        <span class="pa"><b>G. A. Mortensen</b>, E. E. Montgomery, I. Ng’Ombwa, S. R. Smoot, D. Stephenson, T. C. Kaufman, T. Nemkov, A. D’Alessandro, L. M. Hurley, J. M. Tennessen, H. Tang, D. E. Chusyd</span>
+        <span class="pv"><i>bioRxiv</i>, 2026</span>
+        <span class="badges"><span class="first">First author</span><a href="https://doi.org/10.64898/2026.06.23.733839">bioRxiv</a></span>
+      </li>
+      <li>
+        <span class="pt">Metagenomic profiling and predictive modeling of the gut microbiome reveal signatures of gestational disease</span>
+        <span class="pa"><b>G. A. Mortensen</b>, H. Schmidt, P. Radivojac, Y. Ye, D. M. Haas</span>
+        <span class="pv"><i>Microbiology Spectrum</i> 14, e03155-25, 2026</span>
+        <span class="badges"><span class="first">First author</span><a href="https://doi.org/10.1128/spectrum.03155-25">DOI</a></span>
+      </li>
+      <li>
+        <span class="pt">The HM-TARGET personalised real-time haemodynamic targets in critical care</span>
+        <span class="pa">Y. Sun, J. Li, X. Liu, <b>G. A. Mortensen</b>, X. Gu, D. C. Adams, H. Tang, J. Su, Z. Liu, D. Sun, L. Meng</span>
+        <span class="pv"><i>Nature Communications</i> 16, 7307, 2025</span>
+        <span class="badges"><a href="https://doi.org/10.1038/s41467-025-62527-x">DOI</a></span>
+      </li>
+      <li>
+        <span class="pt">Illuminating the unseen: A large-scale exploration of bias in ICU discharge summaries via language models</span>
+        <span class="pa">R. Zhu, <b>G. Mortensen</b>, Y. Fan, H. Tang</span>
+        <span class="pv"><i>IEEE EMBS International Conference on Biomedical and Health Informatics</i> (BHI), 2025</span>
+        <span class="badges"><a href="https://doi.org/10.1109/BHI67747.2025.11269458">DOI</a></span>
+      </li>
+      <li>
+        <span class="pt">Early Alzheimer’s detection through voice analysis: Harnessing locally deployable LLMs via ADetectoLocum, a privacy-preserving diagnostic system</span>
+        <span class="pa"><b>G. A. Mortensen</b>, R. Zhu</span>
+        <span class="pv"><i>AMIA Joint Summits on Translational Science Proceedings</i>, 365–374, 2025</span>
+        <span class="badges"><span class="first">First author</span><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150716/">PMC</a><span>Oral presentation</span></span>
+      </li>
+      <li>
+        <span class="pt">Measuring the burden of hundreds of BioBricks defines an evolutionary limit on constructability in synthetic biology</span>
+        <span class="pa">N. Radde*, <b>G. A. Mortensen*</b>, D. Bhat, S. Shah, J. J. Clements, S. P. Leonard, M. J. McGuffie, D. M. Mishler, J. E. Barrick</span>
+        <span class="pv"><i>Nature Communications</i> 15, 6242, 2024</span>
+        <span class="badges"><span class="first">Equal contribution</span><a href="https://doi.org/10.1038/s41467-024-50639-9">DOI</a><span>iGEM Gold Medal &amp; Best Measurement</span></span>
+      </li>
+    </ol>
+  </section>
 
-    <section class="section" id="publications">
-      <div class="container">
-        <div class="section-heading">
-          <span>03</span>
-          <h2>Selected Publications</h2>
-        </div>
-        <div class="publication-list">
-          <article class="publication">
-            <div class="pub-year">2026</div>
-            <div><h3>Metagenomic profiling and predictive modeling of the gut microbiome reveal signatures of gestational disease.</h3><p><strong>Mortensen, G. A.</strong>, Schmidt, H., Radivojac, P., Ye, Y., & Haas, D. M. <em>Microbiology Spectrum</em>.</p></div>
-          </article>
-          <article class="publication">
-            <div class="pub-year">2026</div>
-            <div><h3>LLMs as Lab Engineers: A Benchmark for Analytical Method Lifecycle Management.</h3><p>Chen, X., Monshizadeh, M., Zhang, C., Lang, J., Wu, Y., <strong>Mortensen, G.</strong>, et al. <em>ACL 2026 Findings</em>.</p></div>
-          </article>
-          <article class="publication">
-            <div class="pub-year">2025</div>
-            <div><h3>Early Alzheimer's Detection Through Voice Analysis: Harnessing Locally Deployable LLMs via ADetectoLocum.</h3><p><strong>Mortensen, G. A.</strong> & Zhu, R. <em>AMIA Joint Summits on Translational Science Proceedings</em>.</p></div>
-          </article>
-          <article class="publication">
-            <div class="pub-year">2025</div>
-            <div><h3>The HM-TARGET personalised real-time haemodynamic targets in critical care.</h3><p>Sun, Y., Li, J., Liu, X., <strong>Mortensen, G. A.</strong>, et al. <em>Nature Communications</em>.</p></div>
-          </article>
-          <article class="publication">
-            <div class="pub-year">2024</div>
-            <div><h3>Measuring the burden of hundreds of BioBricks defines an evolutionary limit on constructability in synthetic biology.</h3><p>Radde, N.*, <strong>Mortensen, G. A.</strong>*, et al. <em>Nature Communications</em>. *Equal contribution.</p></div>
-          </article>
-          <article class="publication">
-            <div class="pub-year">2026</div>
-            <div><h3>Comparative metabolomics identifies recurrent age-associated pathway remodeling across species.</h3><p><strong>Mortensen, G. A.</strong>, Montgomery, E. E., Ng'Ombwa, I., et al. <em>bioRxiv</em>.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
+  <section id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <ul class="news">
+      <li><span class="when">2022–now</span><span><b>Research Assistant</b>, Tang Lab, Indiana University. Virtual Patient modeling on MIMIC-IV/eICU, metagenomics, metabolomics, biomedical LLMs.</span></li>
+      <li><span class="when">2024, 2025</span><span><b>Omics Bioinformatics Data Analyst Intern</b>, Zoetis. End-to-end metabolomics pipeline, multi-omics reporting, vaccine-target evaluation metrics.</span></li>
+      <li><span class="when">2023</span><span><b>Pharmacogenomics Research Intern</b>, IU School of Medicine. Built miRilizer, an R Shiny app for mRNA–miRNA interactome analysis.</span></li>
+      <li><span class="when">2021–22</span><span><b>Research Associate</b>, Asuragen (Bio-Techne). Molecular controls for qPCR and sequencing assays under cGMP, CLIA/CAP.</span></li>
+      <li><span class="when">2021</span><span><b>Manufacturing Scientist</b>, Agilent Technologies. IVD/RUO oncology reagents and QC data.</span></li>
+      <li><span class="when">2020–21</span><span><b>Molecular Technologist</b>, Sonic Reference Laboratory. High-throughput COVID-19 qPCR testing and lab automation.</span></li>
+    </ul>
+  </section>
 
-    <section class="section muted" id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <span>04</span>
-          <h2>Software & Technical Focus</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card"><h3>MGPipe</h3><p>Reproducible shotgun metagenomics workflow for QC, host-read removal, taxonomic and functional profiling, and analysis-ready outputs.</p></article>
-          <article class="project-card"><h3>ADetectoLocum</h3><p>Locally deployable, privacy-preserving language-model and machine-learning pipeline for voice-based Alzheimer's risk detection.</p></article>
-          <article class="project-card"><h3>Aging_Metabolome</h3><p>Cross-species metabolomics workflow for age-effect modeling, trajectory analysis, pathway scoring, and comparative visualization.</p></article>
-          <article class="project-card"><h3>Genome Assembly</h3><p>Python workflow for genome assembly, annotation, and sequence-alignment analysis.</p></article>
-          <article class="project-card"><h3>sc-seq</h3><p>Exploratory machine-learning notebooks for single-cell RNA and ATAC sequencing data.</p></article>
-          <article class="project-card"><h3>miRilizer</h3><p>R Shiny application for interactive mRNA-miRNA interaction analysis in human hepatocytes.</p></article>
-        </div>
-        <div class="skills">
-          <h3>Core toolkit</h3>
-          <p><strong>Programming:</strong> Python, R, SQL, Bash/Shell, C++, JavaScript, HTML, VBA, LaTeX</p>
-          <p><strong>ML:</strong> PyTorch, TensorFlow, Hugging Face Transformers/Datasets/PEFT, scikit-learn, statsmodels, XGBoost, VAEs, LLMs, representation learning, survival analysis, classification, calibration, clustering</p>
-          <p><strong>Bioinformatics:</strong> MIMIC-IV, genomics, NGS, metagenomics, microbiome, metabolomics, transcriptomics, pharmacogenomics, single-cell sequencing</p>
-          <p><strong>Scientific computing:</strong> Linux, HPC, GPU/CUDA, Git/GitHub, Nextflow, Docker, PostgreSQL, Jupyter, R Shiny, pandas, NumPy, matplotlib, ggplot2</p>
-        </div>
-      </div>
-    </section>
+  <section id="teaching" aria-labelledby="teach-h">
+    <h2 id="teach-h">Teaching &amp; Service</h2>
+    <h3>Teaching</h3>
+    <ul class="list">
+      <li>Associate Instructor, Introductory Python Programming, Indiana University <span class="dim">(2022–2023)</span>. Taught sections and coordinated four peer instructors.</li>
+      <li>Research Instructor, Laboratory Experience in Molecular Biology, UT Austin <span class="dim">(2021)</span></li>
+      <li>Mentor to two undergraduate researchers at IU <span class="dim">(2023–2024)</span></li>
+    </ul>
+    <h3>Leadership</h3>
+    <ul class="list">
+      <li>Seminar Series Coordinator, Center for Bioinformatics Research, IU <span class="dim">(2023–present)</span>; organized the 2025 and 2026 research retreats</li>
+      <li>President, IU Bioinformatics Club <span class="dim">(2023–2025)</span></li>
+      <li>Technical Program Committee, Workshop on AI Systems with Confidential Computing (AISCC), NDSS <span class="dim">(2024)</span></li>
+    </ul>
+    <h3>Reviewer</h3>
+    <ul class="list">
+      <li>IEEE Transactions on Computational Biology and Bioinformatics <span class="dim">(2025, 2026)</span></li>
+      <li>Pacific Symposium on Biocomputing <span class="dim">(2024, 2025)</span>; IEEE EMBC <span class="dim">(2026)</span>; ICIBM <span class="dim">(2026)</span></li>
+    </ul>
+  </section>
+</main>
 
-    <section class="section contact" id="contact">
-      <div class="container contact-inner">
-        <div>
-          <p class="eyebrow">CONTACT</p>
-          <h2>Interested in computational biology, biomedical AI, or scientific software?</h2>
-          <p>For research collaborations, industry opportunities, or other professional inquiries:</p>
-        </div>
-        <a class="contact-link" href="mailto:gamorten@iu.edu">gamorten@iu.edu</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <span>© 2026 Genevieve A. Mortensen</span>
-      <span>Bioinformatics · Computational Omics · Biomedical AI</span>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap">© 2026 Genevieve A. Mortensen · Last updated November 2026</div>
+</footer>
 </body>
 </html>
