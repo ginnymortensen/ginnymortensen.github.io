@@ -1,19 +1,8 @@
-# Genevieve A. Mortensen — GitHub Pages site
+# Genevieve A. Mortensen — personal website
 
-A static personal research website for GitHub Pages.
+Source for https://ginnymortensen.github.io/, served by GitHub Pages from the `main` branch (root).
 
-## Deploy
+- `index.html` — the whole site (self-contained HTML and CSS).
+- `GAMortensen_CV.pdf` — CV linked from the site's CV buttons. Replace this file to update the CV.
 
-1. Create a GitHub repository named `gamorten.github.io`.
-2. Upload `index.html`, `styles.css`, and the `cv/` directory.
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch** and select `main` / root.
-5. Your site will be available at `https://gamorten.github.io/` after GitHub Pages finishes deploying.
-
-## Add your CV
-
-Place your current CV at:
-
-`cv/GAMortensen_CV_2026_current_Nextflow.docx`
-
-The CV button already points to that path.
+`styles.css` and `cv/` belong to the previous version of the site and are no longer used.
